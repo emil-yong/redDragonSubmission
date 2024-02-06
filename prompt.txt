@@ -1,0 +1,77 @@
+There will only be these few genre based on the following sentence
+notemplate
+getLatestEntriesTemplate
+getTimeFrameTemplate
+getAssultTypeTemplate
+
+Question: Generalise the following sentence in json format : "Get me the latest 10 entries of police data"
+Answer: {"format":"getLatestEntriesTemplate"}
+
+Question: Generalise the following sentence in json format : "Get me the latest 1020 entries of police data"
+Answer: {"format":"getLatestEntriesTemplate"}
+
+
+Question: Generalise the following sentence in json format : "Provide the latest 10 updates from the police records."
+Answer: {"format":"getLatestEntriesTemplate"}
+
+Question: Generalise the following sentence in json format : "Show me the freshest 10 items in the police data set."
+Answer: {"format":"getLatestEntriesTemplate"}
+
+Question: Generalise the following sentence in json format : "Fetch the newest 10 entries from the police database."
+Answer: {"format":"getLatestEntriesTemplate"}
+
+Question: Generalise the following sentence in json format : "Obtain the last 10 records of police information."
+Answer: {"format":"getLatestEntriesTemplate"}
+
+Question: Generalise the following sentence in json format : "Retrieve the most recent 10 records from the police datae."
+Answer: {"format":"getLatestEntriesTemplate"}
+
+Question: Generalise the following sentence in json format : "hi"
+Answer: {"format":"notemplate"}
+
+Question: Generalise the following sentence in json format : "what is the weather today?"
+Answer: {"format":"notemplate"}
+
+
+Question: Generalise the following sentence in json format : "what is your name?"
+Answer: {"format":"notemplate"}
+
+
+Question: Generalise the following sentence in json format : "i am hungry"
+Answer: {"format":"notemplate"}
+
+Question: Generalise the following sentence in json format : "can birds fly?"
+Answer: {"format":"notemplate"}
+
+Question: Generalise the following sentence in json format : "An assault was reported at a convenience store following an argument between customers."
+Answer: {"format":"getAssultTypeTemplate"}
+
+Question: Generalise the following sentence in json format : "Law enforcement responded to a nightclub where an assault occurred during a brawl."
+Answer: {"format":"getAssultTypeTemplate"}
+
+Question: Generalise the following sentence in json format : "A bar fight resulted in an assault, leading to the involvement of law enforcement."
+Answer: {"format":"getAssultTypeTemplate"}
+
+Question:Generalise the following sentence in json format : "An assault was reported at a gas station following a disagreement at the pump."
+Answer: {"format":"getAssultTypeTemplate"}
+
+Question: Generalise the following sentence in json format : "A traffic violation was documented when a driver failed to use turn signals while changing lanes."
+Answer: {"format":"getAssultTypeTemplate"}
+
+Question: Generalise the following sentence in json format : "An assault was reported in a parking garage following a road rage incident."
+Answer: {"format":"getAssultTypeTemplate"}
+
+Question: Generalise the following sentence in json format : "what are the reports from 2022-11-23 08:00 to 2022-11-25 09:00"
+Answer: {"format":"getTimeFrameTemplate"}
+
+Question: Generalise the following sentence in json format : "Provide the reports between 2022-11-23 08:00 and 2022-11-25 09:00."
+Answer: {"format":"getTimeFrameTemplate"}
+
+Question: Generalise the following sentence in json format : "Show me the reports generated from 2022-11-23 08:00 to 2022-11-25 09:00."
+Answer: {"format":"getTimeFrameTemplate"}
+
+Question: Generalise the following sentence in json format : "Can you list the reports covering the period from 2022-11-23 08:00 to 2022-11-25 09:00"
+Answer: {"format":"getTimeFrameTemplate"}
+
+Question: Generalise the following sentence in json format  : "%s"
+Answer:

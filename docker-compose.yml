@@ -1,0 +1,102 @@
+version: "3.9"
+
+services:
+  fastchat-controller:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: fastchat:Test3
+    container_name: fastchat_controller
+    ports:
+      - "21001:21001"
+    restart: on-failure
+    entrypoint:
+      [
+        "python3.9",
+        "-m",
+        "fastchat.serve.controller",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "21001",
+      ]
+
+    
+  fastchat-model-worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - /home/dsta/Desktop/AWQ/vicuna-7b-v1.5-awq:/FastChat/models/vicuna-7b-v1.5-awq
+    environment:
+      FASTCHAT_CONTROLLER_URL: http://fastchat-controller:21001
+    image: fastchat:Test3
+    container_name: fastchat_model_worker
+    restart: on-failure
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "curl",
+          "-X",
+          "POST",
+          "http://localhost:21002/worker_get_status",
+        ]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 15s
+    ports:
+      - "21002:21002"
+    entrypoint:
+      [
+        "python3.9",
+        "-m",
+        "fastchat.serve.vllm_worker",
+        "--model-names",
+        "gpt-3.5-turbo,text-embedding-ada-002,vicuna-7b-v1.5",
+        "--model-path",
+        "/FastChat/models/vicuna-7b-v1.5-awq",
+        "--quantization",
+        "awq",
+        "--worker-address",
+        "http://fastchat-model-worker:21002",
+        "--controller-address",
+        "http://fastchat-controller:21001",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "21002",
+      ]
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  fastchat-api-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: fastchat:Test3
+    container_name: fastchat_api
+    restart: on-failure
+    ports:
+      - "7862:7862"
+    entrypoint:
+      [
+        "python3.9",
+        "-m",
+        "fastchat.serve.openai_api_server",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "7862",
+        "--controller-address",
+        "http://fastchat-controller:21001",
+      ]
+
+
+  

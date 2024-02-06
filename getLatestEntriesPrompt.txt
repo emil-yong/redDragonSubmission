@@ -1,0 +1,19 @@
+Question: Extract the numerical value in the following sentence in json : "Get me the latest 10 entries of police data"
+Answer: {"num":"10"}
+
+Question: Extract the numerical value in the following sentence in json  : "Provide the latest 10 updates from the police records."
+Answer: {"num":"10"}
+
+Question: Extract the numerical value in the following sentence in json  : "Show me the freshest 20 items in the police data set."
+Answer: {"num":"20"}
+
+Question: Extract the numerical value in the following sentence in json : "Fetch the newest 90 entries from the police database."
+Answer: {"num":"90"}
+
+Question:Extract the numerical value in the following sentence in json  : "Obtain the last 50 records of police information."
+Answer:{"num":"50"}
+
+Question: Extract the numerical value in the following sentence in json  : "Retrieve the most recent 10 records from the police data."
+Answer: {"num":"10"}
+Question: Extract the numerical value in the following sentence in json  : "%s"
+Answer:
